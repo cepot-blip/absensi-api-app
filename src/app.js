@@ -2,9 +2,9 @@ import express from "express";
 import cors from "cors";
 import { rateLimit } from "express-rate-limit";
 import helmet from "helmet";
-import absen_keluar_routes from "./src/api/routes/AbsenKeluar/absen_keluar_routes";
-import users_routes from "./src/api/routes/Users/Users_routes";
-import absen_masuk_routes from "./src/api/routes/AbsenMasuk/absen_masuk_routes";
+import absen_keluar_routes from "./api/routes/AbsenKeluar/absen_keluar_routes";
+import users_routes from "./api/routes/Users/Users_routes";
+import absen_masuk_routes from "./api/routes/AbsenMasuk/absen_masuk_routes";
 
 export const app = express();
 
@@ -60,11 +60,6 @@ app.use("/api", users_routes);
 app.use("/api", absen_keluar_routes);
 app.use("/api", absen_masuk_routes);
 
-app.use((req, res, next) => {
-  const error = new Error("Not Found");
-  res.status(404);
-  next(error);
-});
 
 // Handle errors
 app.use((error, req, res, next) => {
@@ -74,3 +69,5 @@ app.use((error, req, res, next) => {
     },
   });
 });
+
+export default app
