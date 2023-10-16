@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id         Int      @id @default(autoincrement())
+  email      String   @unique
+  password   String
+  role       Role
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  AbsenMasuk Absensi_masuk[]
+}
+
+model Absensi_masuk {
+  id          Int      @id @default(autoincrement())
+  absen       Absen
+  user_id     Int
+  description String
+  filename    String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  Users Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Absensi_keluar {
+  id          Int      @id @default(autoincrement())
+  absen       Absen
+  user_id     Int
+  description String
+  filename    String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Pengajuan_cuti {
+  id               Int      @id @default(autoincrement())
+  jenis_cuti       String
+  jumlah_cuti      String
+  tanggal_request  String
+  status_pengajuan Status
+  description      String
+  filename         String
+  created_at       DateTime @default(now())
+  updated_at       DateTime @updatedAt
+}
+
+model Report {
+  id          Int      @id @default(autoincrement())
+  description String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Profile {
+  id         Int      @id @default(autoincrement())
+  fullname   String
+  jabatan    String
+  telpone    String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+enum Absen {
+  hadir
+  sakit
+  izin
+}
+
+enum Status {
+  approve
+  disapprove
+}
+
+enum Role {
+  admin
+  users
+}
