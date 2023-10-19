@@ -10,8 +10,8 @@ datasource db {
 model Users {
   id         Int      @id @default(autoincrement())
   email      String   @unique
-  password   String
-  role       Role
+  password   String?
+  role       Role?
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
