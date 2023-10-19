@@ -22,7 +22,7 @@ model Absensi_masuk {
   id          Int      @id @default(autoincrement())
   absen       Absen
   user_id     Int
-  description String
+  description String   @db.LongText
   filename    String
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
@@ -34,7 +34,7 @@ model Absensi_keluar {
   id          Int      @id @default(autoincrement())
   absen       Absen
   user_id     Int
-  description String
+  description String   @db.LongText
   filename    String
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
@@ -46,7 +46,7 @@ model Pengajuan_cuti {
   jumlah_cuti      String
   tanggal_request  String
   status_pengajuan Status
-  description      String
+  description      String   @db.LongText
   filename         String
   created_at       DateTime @default(now())
   updated_at       DateTime @updatedAt
@@ -54,7 +54,7 @@ model Pengajuan_cuti {
 
 model Report {
   id          Int      @id @default(autoincrement())
-  description String
+  description String   @db.LongText
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
@@ -63,7 +63,7 @@ model Profile {
   id         Int      @id @default(autoincrement())
   fullname   String
   jabatan    String
-  telpone    String
+  telepon    String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -77,6 +77,7 @@ enum Absen {
 enum Status {
   approve
   disapprove
+  pending
 }
 
 enum Role {

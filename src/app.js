@@ -5,6 +5,9 @@ import helmet from "helmet";
 import absen_keluar_routes from "./api/routes/AbsenKeluar/absen_keluar_routes";
 import absen_masuk_routes from "./api/routes/AbsenMasuk/absen_masuk_routes";
 import users_routes from "./api/routes/Users/Users_routes";
+import pengajuan_cuti_routes from "./api/routes/PengajuanCuti/pengajuan_cuti_routes";
+import profile_routes from "./api/routes/Profile/profile_routes";
+import report_routes from "./api/routes/Report/report_routes";
 
 export const app = express();
 
@@ -59,6 +62,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api", users_routes);
 app.use("/api", absen_keluar_routes);
 app.use("/api", absen_masuk_routes);
+app.use("/api", pengajuan_cuti_routes);
+app.use("/api", profile_routes);
+app.use("/api", report_routes);
 
 
 // Handle errors

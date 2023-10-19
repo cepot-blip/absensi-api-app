@@ -13,13 +13,13 @@ export const AbsenKeluarUpdate = async (req = request, res = response) => {
 		} = await req.body
 		const checkUniqueId = await AbsenKeluarModels.findUnique({
 			where: {
-				id: id,
+				id: parseInt(id),
 			}
 		})
 
 		const checkUniqueUserId = await AbsenKeluarModels.findFirst({
 			where : {
-				id : user_id
+				id : parseInt(user_id)
 			}
 		})
 
