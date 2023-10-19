@@ -19,7 +19,7 @@ export const ProfileUpdate = async (req = request, res = response) =>{
          if(!checkUniqueId){
             return res.status(404).json({
                 success : false,
-                emsg : "Id not found!"
+                msg : "Id not found!"
             })
          }
 
