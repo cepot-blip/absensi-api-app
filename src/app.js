@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   // REQUEST METHODS YOU WISH TO ALLOW
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+    "GET, POST, PUT, DELETE, OPTIONS, PATCH, HEAD"
   );
 
   // REQUEST HEADERS YOU WISH TO ALLOW
@@ -41,9 +41,9 @@ app.set("trust proxy", false);
 app.use(
   cors({
     origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
-    optionsSuccessStatus: 204,
+    optionsSuccessStatus: 201,
   })
 );
 
