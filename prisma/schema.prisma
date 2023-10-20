@@ -20,7 +20,7 @@ model Users {
 
 model Absensi_masuk {
   id          Int      @id @default(autoincrement())
-  absen       Absen
+  absen       Absen?
   user_id     Int
   description String   @db.LongText
   filename    String
