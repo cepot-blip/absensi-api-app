@@ -23,7 +23,7 @@ model Absensi_masuk {
   absen       Absen?
   user_id     Int
   description String   @db.LongText
-  filename    String
+  filename    String?
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 
@@ -35,7 +35,7 @@ model Absensi_keluar {
   absen       Absen
   user_id     Int
   description String   @db.LongText
-  filename    String
+  filename    String?
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
@@ -47,7 +47,7 @@ model Pengajuan_cuti {
   tanggal_request  String
   status_pengajuan Status
   description      String   @db.LongText
-  filename         String
+  filename         String?
   created_at       DateTime @default(now())
   updated_at       DateTime @updatedAt
 }
