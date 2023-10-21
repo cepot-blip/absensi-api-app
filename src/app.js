@@ -8,6 +8,7 @@ import users_routes from "./api/routes/Users/Users_routes";
 import pengajuan_cuti_routes from "./api/routes/PengajuanCuti/pengajuan_cuti_routes";
 import profile_routes from "./api/routes/Profile/profile_routes";
 import report_routes from "./api/routes/Report/report_routes";
+import note_routes from "./api/routes/Note/note_routes";
 
 export const app = express();
 
@@ -65,6 +66,7 @@ app.use("/api", absen_masuk_routes);
 app.use("/api", pengajuan_cuti_routes);
 app.use("/api", profile_routes);
 app.use("/api", report_routes);
+app.use("/api", note_routes);
 
 
 // Handle errors

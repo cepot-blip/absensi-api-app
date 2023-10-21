@@ -6,6 +6,7 @@ export const AbsenKeluarModels = new PrismaClient().absensi_keluar
 export const PengajuanCutiModels = new PrismaClient().pengajuan_cuti
 export const ReportModels = new PrismaClient().report
 export const ProfileModels = new PrismaClient().profile
+export const NoteModels = new PrismaClient().note
 
 
 

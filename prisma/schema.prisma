@@ -68,6 +68,14 @@ model Profile {
   updated_at DateTime @updatedAt
 }
 
+model Note {
+  id         Int      @id @default(autoincrement())
+  title      String
+  content    String   @db.LongText
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
 enum Absen {
   hadir
   sakit
