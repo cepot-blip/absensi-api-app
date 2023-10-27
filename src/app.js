@@ -13,11 +13,11 @@ import note_routes from "./api/routes/Note/note_routes";
 export const app = express();
 
 // RATE LIMIT, THE PROCESS OF LIMITING THE NUMBER OF USER/CLIENT REQUESTS ON CERTAIN RESOURCES
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100,
-  message: "Too many requests. Please wait a while before trying again.",
-});
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000, // 15 minutes
+//   max: 100,
+//   message: "Too many requests. Please wait a while before trying again.",
+// });
 
 // MIDDLEWARE
 app.use((req, res, next) => {
@@ -37,7 +37,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.set("trust proxy", false);
+app.set("trust proxy", true);
 
 app.use(
   cors({
@@ -55,7 +55,7 @@ app.use(
   })
 );
 
-app.use(limiter);
+// app.use(limiter);
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ extended: false }));
 

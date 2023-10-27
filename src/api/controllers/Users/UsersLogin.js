@@ -11,7 +11,7 @@ const salt = bcrypt.genSaltSync(10)
 
 export const UsersLogin = async (req = request, res = response) => {
     try {
-        const {email, password, role} = await req.body
+        const {email, password} = await req.body
 
         const UsersCheck = await UsersModels.findUnique({
             where : {
@@ -32,7 +32,6 @@ export const UsersLogin = async (req = request, res = response) => {
                 app_name : process.env.APP_NAME,
                 id : UsersCheck.id,
                 email : UsersCheck.email,
-                role : role
             },
             process.env.API_SECRET,
             {
@@ -49,7 +48,6 @@ export const UsersLogin = async (req = request, res = response) => {
 
         const hashToken = await cryptoJs.AES.encrypt(token, process.env.API_SECRET).toString()
         
-        res.setHeader("Access-Controll-Allow-Origin", "*")
         res.status(201).json({
             success : true,
             token : hashToken

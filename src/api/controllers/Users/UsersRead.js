@@ -1,7 +1,6 @@
 import { request, response } from "express"
 import { UsersModels } from "../../../models/Models"
 
-
 export const UsersRead = async (req = request, res = response) => {
     try {
         const { page = 1, limit = 10 } = await req.query
@@ -12,6 +11,22 @@ export const UsersRead = async (req = request, res = response) => {
 			take: parseInt(limit),
 			orderBy: { id: "desc" },
 			where: filter,
+			include : {
+				AbsenMasuk : {
+					select : {
+						id : true,
+						absen : true,
+						updated_at :true
+					}
+				},
+				AbsenKeluar : {
+					select : {
+						id : true,
+						absen : true,
+						updated_at : true
+					}
+				}
+			}
         })
 		
         const conn = await UsersModels.count()

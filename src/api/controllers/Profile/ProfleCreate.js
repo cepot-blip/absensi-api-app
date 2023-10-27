@@ -4,6 +4,7 @@ import { ProfileModels } from "../../../models/Models";
 export const ProfileCreate = async (req = request, res =  response) => {
     try {
         const {
+            user_id,
             fullname,
             jabatan,
             telepon,
@@ -11,6 +12,7 @@ export const ProfileCreate = async (req = request, res =  response) => {
 
         await ProfileModels.create({
             data : {
+                user_id : parseInt(user_id),
                 fullname : fullname,
                 jabatan : jabatan,
                 telepon : telepon
