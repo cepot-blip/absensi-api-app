@@ -48,7 +48,7 @@ export const UsersLogin = async (req = request, res = response) => {
 
         const hashToken = await cryptoJs.AES.encrypt(token, process.env.API_SECRET).toString()
         
-        res.status(201).json({
+        res.status(200).json({
             success : true,
             token : hashToken
         })

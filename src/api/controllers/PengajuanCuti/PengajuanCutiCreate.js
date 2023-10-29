@@ -5,6 +5,7 @@ import { PengajuanCutiModels } from "../../../models/Models";
 export const PengajuanCutiCreate = async (req =  request, res = response) =>{
     try {
         const {
+            user_id,
             jenis_cuti,
             jumlah_cuti,
             tanggal_request,
@@ -14,6 +15,7 @@ export const PengajuanCutiCreate = async (req =  request, res = response) =>{
         } = req.body
         await PengajuanCutiModels.create({
             data : {
+                user_id : parseInt(user_id),
                 jenis_cuti : jenis_cuti,
                 jumlah_cuti : jumlah_cuti,
                 tanggal_request : tanggal_request,
