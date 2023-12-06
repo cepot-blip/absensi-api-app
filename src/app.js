@@ -7,7 +7,7 @@ import pengajuan_cuti_routes from "./api/routes/PengajuanCuti/pengajuan_cuti_rou
 import profile_routes from "./api/routes/Profile/profile_routes";
 import report_routes from "./api/routes/Report/report_routes";
 import note_routes from "./api/routes/Note/note_routes";
-import users_routes from "./api/routes/Users/Users_routes";
+import users_routes from "./api/routes/Users/users_routes";
 
 export const app = express();
 
