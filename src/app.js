@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import { rateLimit } from "express-rate-limit";
 import helmet from "helmet";
 import absen_keluar_routes from "./api/routes/AbsenKeluar/absen_keluar_routes";
 import absen_masuk_routes from "./api/routes/AbsenMasuk/absen_masuk_routes";
@@ -11,13 +10,6 @@ import note_routes from "./api/routes/Note/note_routes";
 import users_routes from "./api/routes/Users/Users_routes";
 
 export const app = express();
-
-// RATE LIMIT, THE PROCESS OF LIMITING THE NUMBER OF USER/CLIENT REQUESTS ON CERTAIN RESOURCES
-// const limiter = rateLimit({
-//   windowMs: 15 * 60 * 1000, // 15 minutes
-//   max: 100,
-//   message: "Too many requests. Please wait a while before trying again.",
-// });
 
 // MIDDLEWARE
 app.use((req, res, next) => {
