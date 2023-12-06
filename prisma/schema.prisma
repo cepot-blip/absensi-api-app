@@ -37,7 +37,7 @@ model Absensi_masuk {
   id          Int      @id @default(autoincrement())
   absen       Absen?
   user_id     Int
-  description String   @db.LongText
+  description String?  @db.LongText
   filename    String?
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
@@ -49,7 +49,7 @@ model Absensi_keluar {
   id          Int      @id @default(autoincrement())
   absen       Absen
   user_id     Int
-  description String   @db.LongText
+  description String?  @db.LongText
   filename    String?
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
